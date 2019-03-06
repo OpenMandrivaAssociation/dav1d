@@ -37,6 +37,11 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 %setup -q
 
 %build
+%ifarch %{arm}
+export CC=gcc
+export CXX=g++
+%endif
+
 %meson
 %ninja -C build
 
