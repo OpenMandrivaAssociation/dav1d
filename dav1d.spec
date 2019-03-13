@@ -2,7 +2,7 @@
 %define         devel %mklibname %{name} -d
 
 Name:     dav1d
-Version:  0.2.0
+Version:  0.2.1
 Release:  1
 License:  BSD
 Group:    System/Libraries
@@ -38,10 +38,10 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 
 %build
 #ARM use GCC because Clang failed to build.
-%ifarch %{arm} %{armx}
-export CC=gcc
-export CXX=g++
-%endif
+#ifarch %{arm} %{armx}
+#export CC=gcc
+#xport CXX=g++
+#endif
 
 %meson
 %ninja -C build
