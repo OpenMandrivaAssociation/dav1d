@@ -2,7 +2,7 @@
 %define         devel %mklibname %{name} -d
 
 Name:     dav1d
-Version:  0.2.0
+Version:  0.2.1
 Release:  1
 License:  BSD
 Group:    System/Libraries
