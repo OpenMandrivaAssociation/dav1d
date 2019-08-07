@@ -39,6 +39,7 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 %build
 #ARM use GCC because Clang failed to build.
 %ifarch %{arm} %{armx}
+%global ldflags %{ldflags} -fuse-ld=gold
 export CC=gcc
 export CXX=g++
 %endif
