@@ -73,4 +73,4 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files -n %{libname}
-%{_libdir}/libdav1d.so%{major}*
+%{_libdir}/libdav1d.so.%{major}*
