@@ -1,11 +1,14 @@
+%ifarch %{arm} %{armx}
 %define _disable_lto 1
+%endif
 
+%define         major 3
 %define         libname %mklibname %{name}
 %define         devel %mklibname %{name} -d
 
 Name:     dav1d
 Version:	0.5.1
-Release:	1
+Release:	2
 License:  BSD
 Group:    System/Libraries
 Summary:  AV1 cross-platform Decoder
@@ -39,6 +42,13 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 %setup -q
 
 %build
+# As of 0.5.0 release both arm failed to build on gcc due to a lot of issues like:
+#error: undefined reference to 'checkasm_fail_func'
+#/src/arm/64/ipred.S:876: error: undefined reference to 'dav1d_sm_weights'
+# Using clang gives, error: unknown directive .endfunc
+#<instantiation>:55:1: note: while in macro instantiation endfunc
+# Solution is disable LTO and use Clanh for ARM.
+#--
 #ARM use GCC because Clang failed to build.
 #ifarch %{arm} %{armx}
 #global ldflags %{ldflags} -fuse-ld=gold
@@ -63,4 +73,4 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files -n %{libname}
-%{_libdir}/libdav1d.so*
+%{_libdir}/libdav1d.so%{major}*
