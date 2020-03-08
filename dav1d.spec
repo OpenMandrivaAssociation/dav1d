@@ -2,6 +2,10 @@
 %define         libname %mklibname %{name}
 %define         devel %mklibname %{name} -d
 
+%ifarch %{arm} %{armx}
+%define _disable_lto 1
+%endif
+
 Name:     dav1d
 Version:	0.6.0
 Release:	1
