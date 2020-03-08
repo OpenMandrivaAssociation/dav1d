@@ -1,13 +1,9 @@
-%ifarch %{arm} %{armx}
-%define _disable_lto 1
-%endif
-
-%define         major 3
+%define         major 4
 %define         libname %mklibname %{name}
 %define         devel %mklibname %{name} -d
 
 Name:     dav1d
-Version:	0.5.2
+Version:	0.6.0
 Release:	1
 License:  BSD
 Group:    System/Libraries
