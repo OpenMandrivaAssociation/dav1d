@@ -7,7 +7,7 @@
 %endif
 
 Name:     dav1d
-Version:	0.7.0
+Version:	0.7.1
 Release:	1
 License:  BSD
 Group:    System/Libraries
