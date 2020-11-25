@@ -1,4 +1,4 @@
-%define         major 4
+%define         major 5
 %define         libname %mklibname %{name}
 %define         devel %mklibname %{name} -d
 
@@ -7,7 +7,7 @@
 %endif
 
 Name:     dav1d
-Version:	0.7.1
+Version:	0.8.0
 Release:	1
 License:  BSD
 Group:    System/Libraries
