@@ -7,7 +7,7 @@
 %endif
 
 Name:     dav1d
-Version:	0.8.0
+Version:	0.8.1
 Release:	1
 License:  BSD
 Group:    System/Libraries
@@ -39,7 +39,7 @@ Requires:       %{libname} = %{version}-%{release}
 Development files for dav1d, the AV1 cross-platform Decoder.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 # As of 0.5.0 release both arm failed to build on gcc due to a lot of issues like:
