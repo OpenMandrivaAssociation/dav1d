@@ -2,13 +2,13 @@
 %define         libname %mklibname %{name}
 %define         devel %mklibname %{name} -d
 
-%ifarch %{arm} %{armx}
+%ifarch %{arm} %{armx} x86_64 znver1
 %define _disable_lto 1
 %endif
 
 Name:     dav1d
 Version:	0.8.1
-Release:	1
+Release:	2
 License:  BSD
 Group:    System/Libraries
 Summary:  AV1 cross-platform Decoder
