@@ -2,9 +2,7 @@
 %define         libname %mklibname %{name}
 %define         devel %mklibname %{name} -d
 
-%ifarch %{arm} %{armx} x86_64 znver1
 %define _disable_lto 1
-%endif
 
 Name:     dav1d
 Version:	0.8.1
@@ -16,7 +14,9 @@ URL:      https://code.videolan.org/videolan/dav1d
 Source0:  https://code.videolan.org/videolan/dav1d/-/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  doxygen
+%ifarch %{ix86} %{x86_64}
 BuildRequires:  nasm
+%endif
 BuildRequires:  ninja
 BuildRequires:  meson
 
