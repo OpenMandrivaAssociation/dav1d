@@ -19,11 +19,7 @@ BuildRequires:  nasm
 %endif
 BuildRequires:  ninja
 BuildRequires:  meson
-%ifarch %{x86}
-BuildRequires:  xxhash-devel
-%else
 BuildRequires:  pkgconfig(libxxhash)
-%endif
 
 %description
 dav1d is a new AV1 cross-platform Decoder, open-source, and focused on speed and correctness.
