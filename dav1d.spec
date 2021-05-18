@@ -5,7 +5,7 @@
 %define _disable_lto 1
 
 Name:     dav1d
-Version:	0.8.2
+Version:	0.9.0
 Release:	1
 License:  BSD
 Group:    System/Libraries
