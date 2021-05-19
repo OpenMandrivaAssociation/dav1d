@@ -1,40 +1,44 @@
-%define         major 5
-%define         libname %mklibname %{name}
-%define         devel %mklibname %{name} -d
+%define major 5
+%define libname %mklibname %{name}
+%define devel %mklibname %{name} -d
+
+%ifarch %{x86_64}
+%global optflags %{optflags} -O3
+%endif
 
 %define _disable_lto 1
 
-Name:     dav1d
+Name:		dav1d
 Version:	0.9.0
 Release:	1
-License:  BSD
-Group:    System/Libraries
-Summary:  AV1 cross-platform Decoder
-URL:      https://code.videolan.org/videolan/dav1d
-Source0:  https://code.videolan.org/videolan/dav1d/-/archive/%{version}/%{name}-%{version}.tar.gz
+License:	BSD
+Group:		System/Libraries
+Summary:	AV1 cross-platform Decoder
+URL:		https://code.videolan.org/videolan/dav1d
+Source0:	https://code.videolan.org/videolan/dav1d/-/archive/%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  doxygen
+BuildRequires:	doxygen
 %ifarch %{ix86} %{x86_64}
-BuildRequires:  nasm
+BuildRequires:	nasm
 %endif
-BuildRequires:  ninja
-BuildRequires:  meson
-BuildRequires:  pkgconfig(libxxhash)
+BuildRequires:	ninja
+BuildRequires:	meson
+BuildRequires:	pkgconfig(libxxhash)
 
 %description
 dav1d is a new AV1 cross-platform Decoder, open-source, and focused on speed and correctness.
 
 %package -n %{libname}
-Summary:        Library files for dav1d
-Group:          System/Libraries
+Summary:	Library files for dav1d
+Group:		System/Libraries
 
 %description -n %{libname}
 Library files for dav1d, the AV1 cross-platform Decoder
 
 %package -n %{devel}
-Summary:        Development files for dav1d
-Group:          System/Libraries
-Requires:       %{libname} = %{version}-%{release}
+Summary:	Development files for dav1d
+Group:		Development/C
+Requires:	%{libname} = %{EVRD}
 
 %description -n %{devel}
 Development files for dav1d, the AV1 cross-platform Decoder.
