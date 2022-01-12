@@ -1,4 +1,4 @@
-%define major 5
+%define major 6
 %define libname %mklibname %{name}
 %define devel %mklibname %{name} -d
 
@@ -7,15 +7,20 @@
 %endif
 
 %define _disable_lto 1
+%define snapshot 20220112
 
 Name:		dav1d
-Version:	0.9.2
-Release:	1
+Version:	0.9.3
+Release:	%{?snapshot:0.%{snapshot}.}1
 License:	BSD
 Group:		System/Libraries
 Summary:	AV1 cross-platform Decoder
 URL:		https://code.videolan.org/videolan/dav1d
+%if 0%{?snapshot:1}
+Source0:	https://code.videolan.org/videolan/dav1d/-/archive/master/dav1d-master.tar.bz2#/dav1d-%{snapshot}.tar.gz
+%else
 Source0:	https://code.videolan.org/videolan/dav1d/-/archive/%{version}/%{name}-%{version}.tar.gz
+%endif
 
 BuildRequires:	doxygen
 %ifarch %{ix86} %{x86_64}
@@ -44,7 +49,7 @@ Requires:	%{libname} = %{EVRD}
 Development files for dav1d, the AV1 cross-platform Decoder.
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
 
 %build
 # As of 0.5.0 release both arm failed to build on gcc due to a lot of issues like:
