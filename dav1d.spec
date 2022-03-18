@@ -7,10 +7,10 @@
 %endif
 
 %define _disable_lto 1
-%define snapshot 20220112
+#define snapshot 20220112
 
 Name:		dav1d
-Version:	0.9.3
+Version:	1.0.0
 Release:	%{?snapshot:0.%{snapshot}.}1
 License:	BSD
 Group:		System/Libraries
