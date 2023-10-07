@@ -1,4 +1,4 @@
-%define major 6
+%define major 7
 %define libname %mklibname %{name}
 %define devel %mklibname %{name} -d
 
@@ -10,7 +10,7 @@
 #define snapshot 20220112
 
 Name:		dav1d
-Version:	1.2.1
+Version:	1.3.0
 Release:	%{?snapshot:0.%{snapshot}.}1
 License:	BSD
 Group:		System/Libraries
