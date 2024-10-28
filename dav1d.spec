@@ -66,7 +66,7 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 #export CXX=g++
 #endif
 
-%meson
+%meson -Denable_asm=true
 %ninja -C build
 
 %install
