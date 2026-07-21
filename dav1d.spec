@@ -10,7 +10,7 @@
 #define snapshot 20220112
 
 Name:		dav1d
-Version:	1.5.3
+Version:	1.5.4
 Release:	%{?snapshot:0.%{snapshot}.}1
 License:	BSD
 Group:		System/Libraries
@@ -52,20 +52,6 @@ Development files for dav1d, the AV1 cross-platform Decoder.
 %autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
 
 %build
-# As of 0.5.0 release both arm failed to build on gcc due to a lot of issues like:
-#error: undefined reference to 'checkasm_fail_func'
-#/src/arm/64/ipred.S:876: error: undefined reference to 'dav1d_sm_weights'
-# Using clang gives, error: unknown directive .endfunc
-#<instantiation>:55:1: note: while in macro instantiation endfunc
-# Solution is disable LTO and use Clanh for ARM.
-#--
-#ARM use GCC because Clang failed to build.
-#ifarch %{arm} %{armx}
-#global ldflags %{ldflags} -fuse-ld=gold
-#export CC=gcc
-#export CXX=g++
-#endif
-
 %meson -Denable_asm=true
 %ninja -C build
 
