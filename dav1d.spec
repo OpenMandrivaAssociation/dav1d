@@ -10,7 +10,7 @@
 #define snapshot 20220112
 
 Name:		dav1d
-Version:	1.5.4
+Version:	1.5.5
 Release:	%{?snapshot:0.%{snapshot}.}1
 License:	BSD
 Group:		System/Libraries
